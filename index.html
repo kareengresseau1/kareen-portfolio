@@ -102,7 +102,7 @@
                             </h1>  
                         </div>   
                         <div class = "position absolute top-50 start-50 translate-middle">
-                        <button type = "button" class = "btn mesBoutons" onclick="window.open('/resume_kareen_portfolio.pdf')">My resume</button>
+                        <button type = "button" class = "btn mesBoutons" onclick="window.open('/public/resume_kareen_portfolio.pdf')">My resume</button>
                         </div>   
                              
                     </div>
@@ -124,7 +124,24 @@
                     </nav>  
                     <hr class="properties"> 
                 </div>
-                <div class = "position relative contenant">  
+                <div id="about_me_petit_ecran">  
+                        <h3>
+                            About me
+                        </h3>  
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                        </svg>
+                        <br>
+                        <br>
+                        <p class = "p paragraphe ">
+                            Computer Science student with an interest in web and software development. <br>
+                            Skilled in various programming languages as well as the techniques regarding 
+                            the <br> software development process. Proven ability to develop code for applications. <br><br>
+    
+                            Graduate at the Universit&eacute; de Montr&eacute;al. Bachelor's degree in Cognitive Science.
+                        </p> 
+                </div>  
+                <div class = "position relative contenant" id="about_me_gros_ecran">  
                 
                     <div class = "position absolute top-50 start-0 translate-middle">
                         <h3>
@@ -147,7 +164,8 @@
                     </div>   
                     
                 </div>
-
+                
+ 
             </div>
             <div class="item" id="projets">  
                 <div class = "menu_petits_ecrans">
@@ -564,25 +582,24 @@
                 <div class = "menu_petits_ecrans">
                     <hr class="properties">
                     <nav> 
-                        <div class="navigation" id = "menu">                               <div id = "bouton-moi"><button type = "button" class = "btn mesBoutons" > <a href = "#moi" onclick="currentSlide(2)">About me</a></button></div>
+                        <div class="navigation" id = "menu">                               
+                            <div id = "bouton-moi"><button type = "button" class = "btn mesBoutons" > <a href = "#moi" onclick="currentSlide(2)">About me</a></button></div>
                             <div id = "bouton-projets"><button type = "button" class = "btn mesBoutons" > <a href = "#projets" onclick="currentSlide(3)">Skills</a> </button></div>
                             <div id = "bouton-contact"><button type = "button" class = "btn mesBoutons" > <a href = "#projets_1" onclick="currentSlide(4)">My projects</a></button></div> 
                             <div id = "bouton-contact"><button type = "button" class = "btn mesBoutons" > <a href = "#contact" onclick="currentSlide(5)">Contact me</a></button></div>
                         </div>
                     </nav>  
                     <hr class="properties"> 
-                </div>
-                <div class = "position relative contenant" id="display_videos">
-                    <h3>
-                        My Projects 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
-                            <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
-                        </svg> 
-                    </h3>     
-                    <br>
-                    <p style="color:#362020">Click on the captions for more information</p>
-                    <br>
-                        
+                </div> 
+                <h3>
+                    My Projects 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+                        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+                    </svg>  
+                </h3>  
+                <p style="color:#362020">Click on the captions for more information</p>
+                <div class = "position relative contenant" id="display_videos">      
+                    
                     <div> 
                         <div style="width: 50%; float: left; width:45%; margin-left: 5%; margin-bottom: 50%;">
                             <a href = "https://github.com/kareengresseau1/Conversion-code-morse" target = "_blank" rel = "noopener" aria-label = "projet_morse">
@@ -607,31 +624,32 @@
                     </div> 
                 </div> 
                 <div class="position relative " id="display_videos_vertical">
-                    <h3>
+                    <!-- <h3>
                         My Projects
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
                             <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
                         </svg>
-                    </h3>
+                    </h3> -->
                     
-                    <div class="conteneur-video">
+                    <div class="conteneur-video"> 
                         <a href="https://github.com/kareengresseau1/Conversion-code-morse" target="_blank" rel="noopener" aria-label="projet_morse" class="video-link">
-                            <video autoplay controls loop class="video_projet">
+                            <video controls loop class="video_projet">
                                 <source src="/public/videos/video_morse.mp4">
                                 The navigator cannot play this video
                             </video> 
-                            <p class="caption_video_vertical" style="color:#362020">Morse Code converter : Javascript</p>
-                        </a> 
+                            
+                        </a>  
+                    </div>  
+                    <p class="caption_video_vertical" style="color:#362020">Morse Code converter : Javascript</p>
+                    <div class="conteneur-video"> 
                         <a href="https://gitlab.info.uqam.ca/gresseau.kareen/tp2_inf3190" target="_blank" rel="noopener" aria-label="projet_morse" class="video-link">
-                            <video autoplay controls loop class="video_projet">
+                            <video controls loop class="video_projet">
                                 <source src="/public/videos/2024-01-20 22-00-39.mkv">
                                 The navigator cannot play this video
                             </video> 
-                            <p class = "caption_video_vertical" style="color:#362020">School lunch planer : web programming</p>
-                        </a>  
-                        <p>Click on the captions for more details</p>
-                        
-                    </div>
+                        </a> 
+                    </div> 
+                    <p class = "caption_video_vertical" style="color:#362020">School lunch planer : web programming.</p>  
                 </div>
             </div> 
             

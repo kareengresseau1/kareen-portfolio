@@ -16,13 +16,6 @@ var contact = document.getElementById("contact");
 document.addEventListener("DOMContentLoaded", function () {
   const videos = document.querySelectorAll(".horizontal-scroll-wrapper .item video");
 
-  // Démarrer toutes les vidéos en boucle une fois que les métadonnées sont chargées
-  videos.forEach(video => {
-    video.addEventListener("loadedmetadata", function () {
-      video.play();
-      video.loop = true;
-    });
-  }); 
 
   // Gestion du défilement horizontal quand on scroll vers le haut ou vers le bas
   // Fonctionne autant pour les laptops que pour les ecrans tactiles  

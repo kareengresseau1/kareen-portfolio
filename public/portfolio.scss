@@ -180,7 +180,15 @@ menu {
 
   
 
-@media only screen and (min-width: 601px){  
+@media only screen and (min-width: 601px){   
+
+    #about_me_petit_ecran{
+        display:none;
+    } 
+
+    #about_me_gros_ecran{
+        display:block;
+    }
 
     #barre_navigation_petits_ecrans{
         display: none;
@@ -191,7 +199,8 @@ menu {
     }
 
     #display_videos{
-        display:block;
+        display:block; 
+        
     }   
     
     #display_videos_vertical {
@@ -217,7 +226,16 @@ menu {
 }
 
  
-@media only screen and (max-width: 600px){  
+@media only screen and (max-width: 600px){   
+    #about_me_petit_ecran{
+        display:block;
+    } 
+
+    #about_me_gros_ecran{
+        display:none;
+    }
+
+
     #barre_navigation_petits_ecrans{
         display: block;
     }  
@@ -414,6 +432,7 @@ menu {
 .nav-item.active .nav-label {
   display: block;
 }
+
 
 
 
