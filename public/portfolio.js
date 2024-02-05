@@ -1,14 +1,6 @@
 
 
 
-//////////////////////////////////////////////////////////////////////
-//CONSTANTES POUR CHACUNE DES SECTION DE LA PAGE WEB 
-var home = document.getElementById("debut");
-var me = document.getElementById("moi"); 
-var skills = document.getElementById("projets");
-var projects = document.getElementById("projets_1"); 
-var contact = document.getElementById("contact"); 
-
 
 
 
@@ -56,16 +48,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function handleScroll(deltaY) {
-    if (deltaY > 0 && currentIndex < 7) {
+    if (deltaY > 0 && currentIndex < 5) {
       currentIndex++;
-    } else if (deltaY < 0 && currentIndex > 0) {
+    } else if ((deltaY < 0 && currentIndex > 0) || (currentIndex == 4)) {
       currentIndex--;
     }
 
-    const newIndex = currentIndex + 1; // Nouvel index pour currentSlide
+    const newIndex = currentIndex + 1; // Nouvel index pour currentSlide 
 
-    currentSlide(newIndex); 
-    currentSlideSmall(newIndex);
+    if(newIndex < 6){
+      currentSlide(newIndex); 
+      currentSlideSmall(newIndex);
+    }
+
 
     const scrollPosition = currentIndex * window.innerWidth;
     document.querySelector(".horizontal-scroll-wrapper").scrollTo({
@@ -101,9 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
               }); 
               const newIndex = targetIndex; // Nouvel index pour currentSlide
 
-              currentSlide(newIndex); 
-              currentSlideSmall(newIndex);
-
+              if(newIndex < 6){
+                currentSlide(newIndex); 
+                currentSlideSmall(newIndex);
+              }
           }
       });
   }); 
@@ -199,11 +195,13 @@ function showSlidesSmall(n) {
   let i;
   let slides = document.getElementsByClassName("nav-item-petit");
   let dots = document.getElementsByClassName("nav-link-petit");
-  if (n > slides.length) {slideIndex = 1}    
+  
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
     slides[i].classList.remove("active");
-  }
+  } 
+
+  
   for (i = 0; i < dots.length; i++) {
     dots[i].classList.remove("active");
   }
@@ -223,14 +221,13 @@ function showSlides(n) {
   let slides = document.getElementsByClassName("nav-item");
   let circles = document.getElementsByClassName("nav-circle");
 
-  if (n > slides.length - 1) { slideIndex = 0 }
   if (n < 0) { slideIndex = slides.length }
 
   for (i = 0; i < slides.length; i++) {
     slides[i].classList.remove("active");
     circles[i].style.backgroundColor = "transparent";
   }
-
+  
   slides[slideIndex].classList.add("active");
   circles[slideIndex].style.backgroundColor = "#362020";
 }
