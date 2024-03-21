@@ -1,31 +1,51 @@
-// const express = require('express');
-// const path = require('path');
-// const app = express();  
 
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'portfolio_en.html'));
-// });
-
-// app.listen(8080, () => {
-//     console.log("Server successfully running on port 8080");
-// }); 
-
-const express = require('express');
+const http = require('http');
+const fs = require('fs');
 const path = require('path');
-const { exec } = require('child_process');
-const app = express();
 
+const PORT = process.env.PORT || 3000; // Vous pouvez spécifier le port que vous souhaitez utiliser
 
+const server = http.createServer((req, res) => {
+    // Gérer les requêtes HTTP
+    let filePath = '.' + req.url;
+    if (filePath === './') {
+        filePath = './index.html';
+    }
 
-app.use(express.static(path.join(__dirname, 'public')));
+    filePath = path.resolve(filePath);
 
-app.get('/', (req, res) => {
+    const extname = path.extname(filePath);
+    let contentType = 'text/html';
 
-    res.sendFile(path.join(__dirname, 'public', 'portfolio_en.html'));
+    switch (extname) {
+        case '.js':
+            contentType = 'text/javascript';
+            break;
+        case '.css':
+            contentType = 'text/css';
+            break;
+    }
+
+    fs.readFile(filePath, (err, content) => {
+        if (err) {
+            if (err.code === 'ENOENT') {
+                // Fichier non trouvé
+                res.writeHead(404);
+                res.end('Fichier non trouvé');
+            } else {
+                // Erreur du serveur
+                res.writeHead(500);
+                res.end(`Erreur du serveur: ${err.code}`);
+            }
+        } else {
+            // Succès
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.end(content, 'utf-8');
+        }
+    });
 });
 
-app.listen(8080, () => {
-    console.log("Serveur en cours d'exécution avec succès sur le port 8080");
+server.listen(PORT, () => {
+    console.log(`Serveur en cours d'exécution sur le port ${PORT}`);
 });
+
