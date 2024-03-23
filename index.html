@@ -1068,8 +1068,8 @@
                             <input id="bouton-moi" class="btn boutonFin" type="submit" value="Send"><br>
                         </form>
                         
-                        
-                        <!-- <div id = "bouton-moi"><button type = "button" class = "btn boutonFin" > <a href="mailto:krgresseau@gmail.com?subject=Email from Portfolio">Send me an email</a></button></div> -->
+                        <div id="success-message" style="display: none;">Email sent successfully!</div>
+
                         
 
                         
@@ -1105,7 +1105,9 @@
                 // these IDs from the previous steps
                 emailjs.sendForm('service_5q9ak0l', 'template_7nwvb9o', this)
                     .then(() => {
-                        console.log('SUCCESS!');
+                        console.log('SUCCESS!'); 
+                        // Afficher le message de succès
+                        document.getElementById('success-message').style.display = 'block';
                     }, (error) => {
                         console.log('FAILED...', error);
                     });
