@@ -1117,22 +1117,50 @@
             });
         })();
     </script> 
+    
     <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "vSdILPUE7ERTuc_nf"
+            });
+        })();
+    
         window.onload = function() {
             document.getElementById('contact-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                // these IDs from the previous steps
+    
+                var formData = {
+                    user_name: document.getElementById('user_name').value,
+                    user_email: document.getElementById('user_email').value,
+                    message: document.getElementById('message').value
+                };
+    
                 emailjs.sendForm('service_5q9ak0l', 'template_7nwvb9o', this)
                     .then(() => {
-                        console.log('SUCCESS!'); 
-                        // Afficher le message de succès
+                        console.log('SUCCESS!');
+    
+                        // Send confirmation email to the user
+                        var templateParams = {
+                            user_email: formData.user_email,
+                            user_name: formData.user_name, // Specify your name here
+                            message: formData.message,
+                        };
+    
+                        emailjs.send('service_5q9ak0l', 'template_g1ftrzr', templateParams)
+                            .then(() => {
+                                console.log('Confirmation email sent successfully!');
+                            }, (error) => {
+                                console.error('Error sending confirmation email:', error);
+                            });
+    
+                        // Display success message
                         document.getElementById('success-message').style.display = 'block';
                     }, (error) => {
-                        console.log('FAILED...', error);
+                        console.error('FAILED...', error);
                     });
             });
         }
-    </script>
+    </script>    
     
 
 
